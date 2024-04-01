@@ -1,0 +1,310 @@
+/* hepsinin ozelliklerini sifirla*/
+* {
+  padding: 0; /* iç boşluk*/
+  margin: 0; /* aralarında boşluk hepsi sola dogru yapışır*/
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /*EN SON ANASAYFADAN TIKLADIĞIMIZDA AŞAGIYA DOGRU SAYFA KAYARAK GİDER*/
+}
+
+/*header */
+header {
+  background:linear-gradient( rgba(8, 5, 30, 0.442), rgba(5, 5, 30, 0.5)),
+    url(images/ARKAPLAN.jpg);
+  min-height: 100vh; /* vh benim ekranım*/
+  background-position: center; /* resmi ortala*/
+  background-size: cover; /* olduğu ekranın boyutu kadar*/
+  position: relative; /* genelde header içinde yazı yazılmaz ama bir eleman bir elemanın üstüne getirmek için arkadaki resme position relative
+   getirmek istediğine position: absolute verirsin */
+}
+
+nav {
+  display: flex; /* üçü yanyana sola yaslı olur*/
+  padding: 10px; /* çok yaslılar iç boşluk*/
+  justify-content: space-between; /* eşit aralıklı saga sola dağıt*/
+  align-items: center; /*dikey olarak ortala*/
+}
+
+nav a img {
+  width: 150px;
+}
+
+.nav-links {
+  /* etiket adına direk nokta koyup ulaşıyoruz*/
+  flex: 1; /* tüm alanı kapladı*/
+  text-align: right; /* içindeki yazılar sağa kaydı */
+}
+
+nav div ul {
+  list-style-type: none; /* noktaları kaldırdı */
+  display: flex; /* yanyana getir*/
+  justify-content: flex-end; /* yatay hizalama en sağa atar  */
+  flex-wrap: wrap; /* yer yoksa alta gelir sıkışırsa en sonu alta alır */
+}
+
+nav div ul li {
+  padding: 10px; /* margin de olabilirs */
+}
+
+nav div ul li a {
+  text-decoration: none; /* altındaki çizgiler kalkar */
+  font-size: 25px; /* */
+  color: white; /* */
+}
+nav div ul li a::after {
+  /* yani ben bunların içine sonradan ekleyeceğim veya before */
+  content: ""; /* buraya herhangi birşey yazdığında sonradan çıkıyor */
+  background-color: red;
+  display: block; /* yanyana ise alta alır aynı hizaya izin vermez */
+  width: 0;
+  height: 3px;
+  margin-top: 3px; /* */
+  margin-left: auto; /* soldan sağdan boşluk*/
+  margin-right: auto; /* */
+}
+
+nav div ul li a:hover::after {
+  /* a nın üzerine fare geldiğinde...*/
+  width: 100%; /*fare geldiğinde yüzde yüz büyür */
+  transition: 0.3s;
+}
+
+.bi-list {
+  /* en sağ imleç kısmı */
+  color: white;
+  font-size: 30px;
+  margin-right: 20px;
+  cursor: pointer; /* imleç el olsun */
+}
+
+.bi-list:hover {
+  /* fare ayarı*/
+  font-size: 35px;
+  transition: 0.3s;
+}
+
+.bi-list {
+  display: none;
+}
+
+/* text box*/
+.text-box {
+  width: 80%;
+  color: white;
+  text-align: center; /* yazı ortalansın  */
+  position: absolute; /* önce header kısmına resmi hazırlamak için position: relative yazıyoruz */
+  top: 50%; /* üst alt üste gelecek şekilde  */
+  left: 50%; /* üst alt üste gelecek şekilde  */
+  transform: translate(-50%, -50%); /* üst alt üste gelecek şekilde  */
+}
+
+.text-box h1 {
+  font-size: 60px; /* aynı şekilde medya kısmınada font için yarısını işle  */
+}
+
+.text-box p {
+  margin: 10px; /* sağdan soldan aşağıdan yukarıdan 10px */
+  font-size: 15px;
+}
+
+.hero-btn {
+  /* butona özellikler veriyoruz  */
+  background-color: transparent; /* üzerine geldiğinde  */
+  cursor: pointer; /* fare */
+  padding: 12px 34px; /* bunu verince sarktı bunu önlemek için  */
+  border: 1px solid #fff;
+  color: white;
+  display: inline-block; /* kutu otomatik sığar  */
+  text-decoration: none; /* altındaki çizgiler kalkar  */
+}
+.hero-btn:hover {
+  /*  fare geldiğinde */
+  background-color: red;
+  transition: 0.3s;
+}
+
+/* ortak kullanimlar */
+.align-container {
+  width: 80%;
+  margin: auto;
+  padding-top: 60px;
+  text-align: center;
+}
+.row {
+  margin-top: 40px;
+  display: flex; /* üçünü yanyana getirdi */
+  justify-content: space-between; /* aralarında eşit boşluk bırak */
+}
+.align-item {
+  flex-basis: 30%; /*her bir üç alanımız yüzde 30 yer kaplasın*/
+  border-radius: 10px; /* köşe yarı çaplarının uçlarını alalım */
+  margin-bottom: 5%; /* alttan boşluk bırakalım*/
+  padding: 20px 12px; /* */
+}
+
+/* kurslar*/
+section h1 {
+  /* tüm h1 lere veriyoruz*/
+  font-size: 40px;
+}
+
+section p {
+  /* tüm p lere veriyoruz*/
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 20px;
+  padding: 10px;
+}
+
+section h3 {
+  margin: 20px 0; /* tüm h3 lere boşluk veriyoruz*/
+}
+.course-col {
+  background-color: antiquewhite;
+}
+
+.course-col:hover {
+  box-shadow: 0 0 10px gray; /* fare geldiğinde gölgelik vursun*/
+  transition: 0.3s;
+}
+
+/* birimler */
+.campus-col {
+  padding: 0; /* sağ sola yapışır zaten üsteki ortak alana vermiştik */
+  position: relative;
+  border-radius: 10px;
+}
+
+.campus-col img {
+  /* içinde bulunan resme */
+  width: 100%;
+  border-radius: 10px;
+}
+
+.layer {
+  position: absolute; /* bunu tek yapınca sol alta kalıyor aşağıdakileri ayarlicaz */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* köşeler kıvırcaz */
+}
+.layer:hover {
+  /* fare üzerine geldiğinde */
+  background-color: rgba(230, 118, 6, 0.5);
+  transition: 0.3s;
+}
+
+.layer h3 {
+  position: absolute; /* yazıyoruz ve rahat hareket ediyor */
+  bottom: 0; /* aşağı sıfırla */
+  width: 100%;
+  font-size: 25px;
+  font-weight: 500;
+  color: white;
+  opacity: 0; /* burada 0 yaptık aşağıda 1 yapacagız fare geldiğinde gözüksün  */
+}
+
+.layer:hover h3 {
+  bottom: 50%;
+  transition: 0.3s;
+  opacity: 1; /* burada 1 yaptık*/
+}
+
+/* yerleskelerimiz */
+.facilities-col {
+  text-align: left;
+  padding: 0;
+}
+
+.facilities-col img {
+  width: 100%;
+  border-radius: 10px; /* köşeler kıvırcaz */
+}
+
+.facilities-col p {
+  margin: 16px 0;
+}
+/*Yorumlar */
+.testemonial-col {
+  text-align: left; /*yazıyı sola yasla */
+  cursor: pointer; /*fare */
+  display: flex; /*yanyana getircez */
+  background-color: antiquewhite;
+}
+.testemonial-col img {
+  height: 150px;
+  border-radius: 50%; /*yüzde 50 oranında yuvarlanır */
+  margin-left: 5px;
+  margin-right: 30px;
+}
+
+.testemonial-col p {
+  padding: 0; /*boşlukları kaldırınca sıfırladı sol tarafa */
+}
+.testemonial-col h2 {
+  margin-top: 15px; /*üstünden yapışık olmasın */
+}
+
+.testemonial-col .bi {
+  color: red;
+}
+
+/*acil ulasim alani */
+.ua {
+  color: white;
+  background: linear-gradient(rgba(8, 5, 30, 0.442), rgba(5, 5, 30, 0.5)),
+    url(images/BİZE\ ULAŞ.png);
+  background-position: center;
+  background-size: cover;
+  padding: 200px 0;
+  border-radius: 50px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.ua h1 {
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+/* foteer */
+footer {
+  padding: 30px 0;
+}
+
+footer h1 {
+  margin: 25px 0;
+}
+.icons {
+  margin: 10px;
+}
+.icons .bi {
+  color: red;
+  margin: 0 10px;
+  cursor: pointer;
+  padding: 20px 10px;
+}
+.bi-heart-fill {
+  color: red;
+}
+/*  responsive */ /* media kısmı */
+@media (max-width: 675px) /* biz bunu sitenin arka planında incele kısmında anlarız */ {
+  .nav-links {
+    display: none; /* biz sayfayı küçültüğümüzde anasayfa vs yok olur */
+  }
+  .bi-list {
+    display: block; /* büyük ekranda ise gözüksün */
+  }
+  .text-box h1 {
+    font-size: 30px; /* işlem tamam */
+  }
+  .row {
+    flex-direction: column; /* ekran büyükken yanyana küçükken alt alta sütün gibi yap */
+  }
+  .ua h1 {
+    font-size: 60px;
+  }
+}
